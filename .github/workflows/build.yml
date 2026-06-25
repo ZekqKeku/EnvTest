@@ -43,12 +43,9 @@ jobs:
         
     - name: Build with PyInstaller (macOS)
       if: matrix.os == 'macos-latest'
-      # Dodanie --onefile powoduje usunięcie folderu _internal i spakowanie całości w 1 plik
-      # zip z flagą -y chroni uprawnienia i symlinki plików na macOS
+      # Używamy --onefile, żeby wszystko (w tym Python) zamknęło się w jednym pliku binarnym wewnątrz .app
       run: |
         pyinstaller --noconfirm --onefile --windowed --add-data ".env:." --name "EnvTestApp" --collect-all customtkinter main.py
-        cd dist
-        zip -r -y EnvTestApp-macOS.zip EnvTestApp.app
         
     - name: Upload Artifact (Windows)
       if: matrix.os == 'windows-latest'
@@ -62,4 +59,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: EnvTestApp-macOS
-        path: dist/EnvTestApp-macOS.zip
+        path: dist/EnvTestApp.app
