@@ -1,8 +1,14 @@
 import os
+import sys
 import customtkinter as ctk
 from dotenv import load_dotenv
 
-load_dotenv()
+if hasattr(sys, '_MEIPASS'):
+    env_path = os.path.join(sys._MEIPASS, '.env')
+else:
+    env_path = '.env'
+
+load_dotenv(dotenv_path=env_path)
 
 api_key = os.getenv("API_KEY", "Brak klucza w pliku .env")
 

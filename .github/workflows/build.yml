@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    environment: env
     strategy:
       matrix:
         os: [windows-latest, macos-latest]
@@ -38,13 +39,13 @@ jobs:
       if: matrix.os == 'windows-latest'
       # The --collect-all customtkinter flag is required to properly include the library's assets
       run: |
-        pyinstaller --noconfirm --onefile --windowed --name "EnvTestApp" --collect-all customtkinter main.py
+        pyinstaller --noconfirm --onefile --windowed --add-data ".env;." --name "EnvTestApp" --collect-all customtkinter main.py
         
     - name: Build with PyInstaller (macOS)
       if: matrix.os == 'macos-latest'
       # On macOS, --windowed generates an .app bundle in the dist/ folder
       run: |
-        pyinstaller --noconfirm --windowed --name "EnvTestApp" --collect-all customtkinter main.py
+        pyinstaller --noconfirm --windowed --add-data ".env:." --name "EnvTestApp" --collect-all customtkinter main.py
         
     - name: Upload Artifact (Windows)
       if: matrix.os == 'windows-latest'
