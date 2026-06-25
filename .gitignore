@@ -1,0 +1,62 @@
+# ---------------------------------------------------
+# Python
+# ---------------------------------------------------
+# Środowiska wirtualne
+venv/
+.venv/
+env/
+.env/
+
+# Pamięć podręczna Pythona
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Pliki środowiskowe i klucze
+.env
+.env.*
+!.env.example
+*.pem
+
+# Budowanie (PyInstaller)
+build/
+dist/
+*.spec
+
+# ---------------------------------------------------
+# Środowiska deweloperskie i IDE
+# ---------------------------------------------------
+# PyCharm / JetBrains
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# ---------------------------------------------------
+# Systemy operacyjne
+# ---------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk

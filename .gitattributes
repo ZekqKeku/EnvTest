@@ -1,0 +1,20 @@
+# Automatyczna normalizacja znaków końca linii (CRLF -> LF)
+* text=auto
+
+# Wymuszenie znaków LF dla plików skryptowych i konfiguracyjnych (rozwiązuje problemy między Windows a Linux/Mac)
+*.py text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+.gitignore text eol=lf
+
+# Traktowanie tych plików jako binarne (Git nie będzie próbował zamieniać w nich znaków końca linii ani pokazywać diffów tekstowych)
+*.exe binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+
+# Wykluczenie ze statystyk w panelu języków GitHub (jeśli będziesz coś takiego trzymać w repo)
+*.spec linguist-generated=true
